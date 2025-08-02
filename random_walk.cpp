@@ -3,6 +3,8 @@
 #include <ctime>   // For time
 #include <mpi.h>
 
+using namespace std;
+
 void walker_process();
 void controller_process();
 
@@ -73,7 +75,7 @@ void walker_process()
     }
 
     MPI_Send(&signal, 1, MPI_INT, 0, tag, MPI_COMM_WORLD);
-    std::cout << "Rank" << world_rank << ": Walker finished in " << i << " steps." << "\n";
+    std::cout << "Rank" << world_rank << ": Walker finished in " << i << " steps." << endl;
 
     // TODO: Implement the random walk logic for a walker process.
     // 1. Initialize the walker's position to 0.
@@ -96,7 +98,7 @@ void controller_process()
     {
         MPI_Recv(&received_data, 1, MPI_INT, MPI_ANY_SOURCE, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
     }
-    std::cout << "Controller: All " << number_of_walkers << " Walkers have finished." << "\n";
+    std::cout << "Controller: All " << number_of_walkers << " Walkers have finished." << endl;
     // TODO: Implement the logic for the controller process.
     // 1. Determine the number of walkers (world_size - 1).
     // 2. Loop that many times to receive a message from each walker.
