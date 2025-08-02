@@ -98,7 +98,7 @@ void controller_process()
     {
         MPI_Recv(&received_data, 1, MPI_INT, MPI_ANY_SOURCE, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
     }
-    std::cout << "Controller: All " << number_of_walkers << " Walkers have finished." << endl;
+    std::cout << "Controller: All " << number_of_walkers << " Walkers have finished" << endl;
     // TODO: Implement the logic for the controller process.
     // 1. Determine the number of walkers (world_size - 1).
     // 2. Loop that many times to receive a message from each walker.
