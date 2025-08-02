@@ -94,7 +94,7 @@ void controller_process()
     int number_of_walkers = world_size - 1;
     int received_data;
 
-    for (int j = number_of_walkers; j > 0; j--)
+    for (int j = 1; j < number_of_walkers; j++)
     {
         MPI_Recv(&received_data, 1, MPI_INT, MPI_ANY_SOURCE, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
     }
