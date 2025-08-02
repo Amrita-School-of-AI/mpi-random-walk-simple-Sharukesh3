@@ -71,7 +71,7 @@ void walker_process()
     }
 
     MPI_Send(&signal,1,MPI_INT,0,tag,MPI_COMM_WORLD);
-    std::cout<<"Rank" << world_rank <<": Walker finished in" << i <<"steps."<< std::endl;
+    std::cout<<"Rank" << world_rank <<": Walker finished in " << i <<" steps."<< std::endl;
 
     // TODO: Implement the random walk logic for a walker process.
     // 1. Initialize the walker's position to 0.
@@ -90,7 +90,7 @@ void controller_process()
     int number_of_walkers = world_size-1;
     int received_data;
 
-    for(int j = number_of_walkers;j>0;j--){
+    for(int j = number_of_walkers;j>=0;j--){
         MPI_Recv(&received_data,1,MPI_INT,MPI_ANY_SOURCE,0,MPI_COMM_WORLD, MPI_STATUS_IGNORE);
     }
     std::cout<<"Controller: All " << number_of_walkers <<"Walkers have finished."<< std::endl;
